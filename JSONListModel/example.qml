@@ -3,7 +3,7 @@
  * Licensed under the MIT licence (http://opensource.org/licenses/mit-license.php)
  */
 
-import QtQuick 1.1
+import QtQuick 2.1
 
 Rectangle {
     width: 400
@@ -26,8 +26,8 @@ Rectangle {
             JSONListModel {
                 id: jsonModel1
                 source: "jsonData.txt"
-
                 query: "$.store.book[*]"
+				Component.onCompleted: active = true
             }
             model: jsonModel1.model
 
@@ -66,8 +66,8 @@ Rectangle {
             JSONListModel {
                 id: jsonModel2
                 source: "jsonData.txt"
-
                 query: "$..book[?(@.price<10)]"
+				Component.onCompleted: active = true
             }
             model: jsonModel2.model
 
@@ -113,7 +113,7 @@ Rectangle {
                 ]'
 
                 query: "$[?(@.label.charAt(0)==='A')]"
-
+				Component.onCompleted: active = true
             }
             model: jsonModel3.model
 
